@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Hola, mi primer lab de Angular :D</h1>
+    <h2>{{ welcome }}</h2>
+    <ul>
+        @for (task of tasks; track task) {
+        <li>
+            {{ task }}
+        </li>
+        }
+    </ul>
+    <hr />
+    <h2>{{'Hola'.repeat(4)}}</h2>
+    <p> la suma de 3 + 3 es {{ 3+3 }}</p>
+    <p> Hola soy {{ name() }} y mi edad es {{ age }}</p>
+    <hr />
+    <img [src]="person.avatar" alt="Avatar de {{ person.name }}">
+    <input type="number" [value]="person.age">
+    <button [disabled]="disabeled"> Click me</button>
+    <p>person: {{ person.name }}</p>
+    <hr />
+    <button (click)="clickHandler()">Click me</button>
+    <button (dblclick)="clickHandler()">Click me</button>
+    <p>(change)</p>
+    <input type="number" [value]="person.age" (change)="changeHandler($event)">
+    <p>(change)</p>
+    <input type="text" [value]="person.age" (change)="changeHandler($event)">
+    <p>(keydown)</p>
+    <input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
+    <p>(keydown shitf + t)</p>
+    <input type="text" [value]="person.name" (keydown.shift.t)="clickHandler()">
+    <hr />
+    <h1>Signals</h1>
+    <input type="text" [value]="name()" (change)="changeHandler($event)">
+    <p>name: {{ name() }}</p>
+    <p>name: {{ name() }}</p>
+</div>
