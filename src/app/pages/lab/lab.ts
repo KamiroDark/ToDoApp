@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-lab',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './lab.html',
   styleUrl: './lab.css',
 })
@@ -18,7 +19,7 @@ export class Lab {
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS248mX0v4FNTFBlt4sDNxpLFGsEACtTy7VsQ&s'
   };
 
-  tasks = ['Tarea 1', 'Tarea 2', 'Tarea 3'];
+  tasks = signal(['Instalar Angular', 'Crear Proyecto', 'Crear Componente', 'Crear Servicio']);
 
   disabeled= true;
 

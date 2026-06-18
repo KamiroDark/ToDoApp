@@ -2,11 +2,9 @@
     <h1>Hola, mi primer lab de Angular :D</h1>
     <h2>{{ welcome }}</h2>
     <ul>
-        @for (task of tasks; track task) {
-        <li>
+        <li *ngFor="let task of tasks()">
             {{ task }}
         </li>
-        }
     </ul>
     <hr />
     <h2>{{'Hola'.repeat(4)}}</h2>
@@ -33,4 +31,12 @@
     <input type="text" [value]="name()" (change)="changeHandler($event)">
     <p>name: {{ name() }}</p>
     <p>name: {{ name() }}</p>
+
+    <ul>
+        <p>total: {{ tasks().length }}</p>
+        <li *ngFor="let task of tasks(); index as i">
+            {{ i }} {{ task }}
+        </li>
+    </ul>
+
 </div>

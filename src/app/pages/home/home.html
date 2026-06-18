@@ -3,13 +3,15 @@
         <div class="container">
             <h2>My Day</h2>
             <p>All my tasks in one place</p>
-            <input class="new-todo" placeholder="Type new todo" autofocus type="text" />
+            <input class="new-todo" placeholder="Type new todo" autofocus type="text"
+                (change)="changeHandler($event)" />
         </div>
     </header>
     <div class="container todoapp-wrapper">
         <!-- This section should be hidden by default and shown when there are todos -->
         <section class="main">
             <ul class="todo-list">
+                <!---
                 <li class="completed">
                     <div class="view">
                         <input class="toggle" type="checkbox" checked />
@@ -18,14 +20,16 @@
                     </div>
                     <input class="edit" value="Learn JavaScript" />
                 </li>
-                <li>
+                -->
+                <li *ngFor="let task of tasks(); index as i">
                     <div class="view">
                         <input class="toggle" type="checkbox" />
-                        <label>Buy a unicorn</label>
-                        <button class="destroy"></button>
+                        <label>{{ task }}</label>
+                        <button class="destroy" (click)="deleteTask(i)"></button>
                     </div>
                     <input class="edit" value="Buy a unicorn" />
                 </li>
+                <!--
                 <li class="editing">
                     <div class="view">
                         <input class="toggle" type="checkbox" />
@@ -34,6 +38,7 @@
                     </div>
                     <input class="edit" value="Make dishes" />
                 </li>
+                -->
             </ul>
         </section>
         <!-- This footer should be hidden by default and shown when there are todos -->
